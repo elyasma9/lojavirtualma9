@@ -25,7 +25,9 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1']
+HOST_PROD = config('HOST_PROD')
+
+ALLOWED_HOSTS = [HOST_PROD, '0.0.0.0', '127.0.0.1']
 
 AUTH_USER_MODEL = 'usuarios.CustomUser'
 
@@ -38,8 +40,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'apps.usuarios',
     'apps.enderecos',
+    'apps.produtos',
+    'apps.pedidos',
 ]
 
 MIDDLEWARE = [
