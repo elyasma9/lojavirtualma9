@@ -4,6 +4,7 @@ from apps.enderecos.models import Endereco
 from apps.produtos.models import Produto
 from django.utils import timezone
 
+
 class Pedido(models.Model):
 
     STATUS_CHOICES = (
@@ -14,8 +15,11 @@ class Pedido(models.Model):
 
     user = models.ForeignKey(
         CustomUser, on_delete=models.CASCADE, related_name='pedido')
-    endereco = models.ForeignKey(
-        Endereco, on_delete=models.SET_NULL, related_name='destino', null=True, blank=True)
+    endereco = models.ForeignKey(Endereco,
+                                 on_delete=models.SET_NULL,
+                                 related_name='destino',
+                                 null=True,
+                                 blank=True)
     data_pedido = models.DateTimeField(default=timezone.now)
     status = models.CharField(
         max_length=1, choices=STATUS_CHOICES, blank=False, null=False)
