@@ -22,7 +22,7 @@ class Pedido(models.Model):
                                  blank=True)
     data_pedido = models.DateTimeField(default=timezone.now)
     status = models.CharField(
-        max_length=1, choices=STATUS_CHOICES, blank=False, null=False)
+        max_length=16, choices=STATUS_CHOICES, blank=False, null=False)
     produtos = models.ManyToManyField(Produto, related_name='carrinho')
 
     def __str__(self):
