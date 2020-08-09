@@ -12,6 +12,7 @@ router = routers.DefaultRouter()
 
 # rota de usuários --> nível 1
 router.register(r'usuarios', UsuariosViewSet, base_name='usuarios')
+router.register('produtos', ProdutosViewSet, base_name='produtos')
 
 # rota de usuario aninhada com (endereços, pedidos) --> nível 2
 usuario_router = routers.NestedSimpleRouter(
