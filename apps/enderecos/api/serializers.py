@@ -1,13 +1,24 @@
 from rest_framework.serializers import ModelSerializer
 from apps.enderecos.models import Endereco
-from apps.usuarios.api.serializers import UsuariosSerializer
 
 
 class EnderecossSerializer(ModelSerializer):
 
-    user = UsuariosSerializer()
-
     class Meta:
         model = Endereco
-        fields = ('id', 'user', 'logradouro', 'bairro',
-                  'cep', 'cidade', 'estado', 'numero')
+        fields = ('id', 'logradouro', 'bairro', 'cep',
+                  'cidade', 'estado', 'numero', 'user')
+
+    def create(self, validated_data):
+        endereco = Endereco.objects.create(
+            logradouro=validated_data['logradouro'],
+            bairro=validated_data['bairro'],
+            cep=validated_data['cep'],
+            cidade=validated_data['cidade'],
+            estado=validated_data['estado'],
+            numero=validated_data['numero'],
+            user=validated_data['user']
+        )
+        endereco.save()
+
+        return endereco

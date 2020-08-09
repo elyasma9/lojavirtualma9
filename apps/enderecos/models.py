@@ -14,4 +14,4 @@ class Endereco(models.Model):
     numero = models.CharField(max_length=20)
 
     def __str__(self):
-        return self.cidade
+        return '%s, %s' % (self.cidade, self.logradouro)
