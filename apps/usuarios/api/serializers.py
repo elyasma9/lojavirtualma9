@@ -6,3 +6,28 @@ class UsuariosSerializer(ModelSerializer):
     class Meta:
         model = CustomUser
         fields = ('id', 'nome', 'sobrenome', 'email', 'cpf', 'rg', 'telefone')
+
+
+class UsuariosCompletoSerializer(ModelSerializer):
+
+    class Meta:
+        model = CustomUser
+        fields = ('id', 'nome', 'sobrenome', 'email', "password",
+                  'cpf', 'rg', 'telefone', 'is_staff')
+
+    def create(self, validated_data):
+        user = CustomUser.objects.create(
+            nome=validated_data['nome'],
+            sobrenome=validated_data['sobrenome'],
+            email=validated_data['email'],
+            cpf=validated_data['cpf'],
+            rg=validated_data['rg'],
+            telefone=validated_data['telefone'],
+            is_staff=validated_data['is_staff'],
+            is_active=True
+        )
+        if validated_data['password']:
+            user.set_password(validated_data['password'])
+        user.save()
+
+        return user
