@@ -3,7 +3,6 @@ from django.conf.urls import include
 from django.urls import path
 from rest_framework_nested import routers
 from apps.usuarios.api.viewsets import UsuariosViewSet
-from apps.usuarios.api.viewsets import UsuariosChangePasswordViewSet
 from apps.enderecos.api.viewsets import EnderecosViewSet
 from apps.produtos.api.viewsets import ProdutosViewSet
 from apps.pedidos.api.viewsets import PedidosViewSet
@@ -18,8 +17,6 @@ router.register('produtos', ProdutosViewSet, base_name='produtos')
 # rota de usuario aninhada com (endereços, pedidos) --> nível 2
 usuario_router = routers.NestedSimpleRouter(
     router, 'usuarios', lookup='usuario')
-usuario_router.register(
-    'changepassword', UsuariosChangePasswordViewSet, base_name='changepassword')
 usuario_router.register('enderecos', EnderecosViewSet, base_name='enderecos')
 usuario_router.register('pedidos', PedidosViewSet, base_name='pedidos')
 
