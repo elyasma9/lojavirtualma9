@@ -72,5 +72,5 @@ docker-compose run web python manage.py createsuperuser
 *_pip install pylint_*
 
 ### run lint on project
-find apps/ -name "*.py" -and -not -name "0*.py" | xargs pylint
+find apps/ -name "*.py" -and -not -name "0*.py" | xargs pylint </br>
 find loja/ -name "*.py" -and -not -name "0*.py" | xargs pylint
