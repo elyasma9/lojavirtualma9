@@ -65,3 +65,12 @@ docker-compose run web python manage.py createsuperuser
 }
 ```
 <hr />
+
+## Pylint
+
+### install pylint
+*_pip install pylint_*
+
+### run lint on project
+find apps/ -name "*.py" -and -not -name "0*.py" | xargs pylint
+find loja/ -name "*.py" -and -not -name "0*.py" | xargs pylint
