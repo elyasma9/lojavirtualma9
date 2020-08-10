@@ -13,7 +13,7 @@ class UsuariosCompletoSerializer(ModelSerializer):
     class Meta:
         model = CustomUser
         fields = ('id', 'nome', 'sobrenome', 'email', 'password',
-                  'cpf', 'rg', 'telefone')
+                  'cpf', 'rg', 'telefone', 'is_staff')
 
     def create(self, validated_data):
         user = CustomUser.objects.create(
@@ -23,7 +23,7 @@ class UsuariosCompletoSerializer(ModelSerializer):
             cpf=validated_data['cpf'],
             rg=validated_data['rg'],
             telefone=validated_data['telefone'],
-            is_staff=True,
+            is_staff=validated_data['is_staff'],
             is_active=True
         )
         if validated_data['password']:
@@ -31,7 +31,6 @@ class UsuariosCompletoSerializer(ModelSerializer):
         user.save()
 
         return user
-
 
 class UsuariosChangePasswordSerializer(ModelSerializer):
 

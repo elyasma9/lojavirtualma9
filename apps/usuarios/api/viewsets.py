@@ -19,7 +19,7 @@ class UsuariosViewSet(ModelViewSet):
         return Response(serializer.data)
 
     def retrieve(self, request, pk=None):
-        queryset = CustomUser.objects.filter(is_staff=False)
+        queryset = CustomUser.objects.filter()
         user = get_object_or_404(queryset, pk=pk)
         serializer = UsuariosCompletoSerializer(user)
         return Response(serializer.data)
@@ -32,6 +32,5 @@ class UsuariosViewSet(ModelViewSet):
             user.set_password(serializer.data['password'])
             user.save()
             return Response({'status': 'Senha alterada com sucesso!'})
-        else:
-            return Response(serializer.errors,
-                            status=status.HTTP_400_BAD_REQUEST)
+
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
