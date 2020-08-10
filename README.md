@@ -37,7 +37,7 @@ docker-compose run web python manage.py createsuperuser
 
 <hr />
 
-### Rota `api/usuarios/` - `POST`
+### Request `api/usuarios/` - `POST`
 
 ```json
 {
@@ -51,7 +51,7 @@ docker-compose run web python manage.py createsuperuser
 }
 ```
 
-### Retorno `api/usuarios/` - `response`
+### Response `api/usuarios/`
 
 ```json
 {
