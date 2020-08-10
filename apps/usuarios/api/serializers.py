@@ -31,3 +31,21 @@ class UsuariosCompletoSerializer(ModelSerializer):
         user.save()
 
         return user
+
+
+class UsuariosChangePasswordSerializer(ModelSerializer):
+
+    class Meta:
+        model = CustomUser
+        fields = ('id', 'email', 'password')
+        read_only_fields = ('id', 'email')
+
+    def update(self, validated_data):
+
+        user = CustomUser.objects.filter(pk=validated_data['id'])
+
+        if user and validated_data['password']:
+            user.set_password(validated_data['password'])
+            user.save()
+
+        return user

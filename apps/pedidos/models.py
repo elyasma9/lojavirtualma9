@@ -1,9 +1,9 @@
 from django.db import models
+from django.utils import timezone
+
 from apps.usuarios.models import CustomUser
 from apps.enderecos.models import Endereco
 from apps.produtos.models import Produto
-from django.utils import timezone
-
 
 class Pedido(models.Model):
 

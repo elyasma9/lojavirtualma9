@@ -4,8 +4,8 @@ from django.utils.translation import ugettext_lazy as _
 
 class CustomUserManager(BaseUserManager):
     """
-    Gerente de modelo de usuário personalizado, em que email é o identificador exclusivo
-    para autenticação em vez de nomes de usuário.
+    Gerente de modelo de usuário personalizado, em que email é o
+    identificador exclusivo para autenticação em vez de nomes de usuário.
     """
 
     def create_user(self, email, password, **extra_fields):
