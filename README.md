@@ -26,14 +26,14 @@ docker-compose run web python manage.py createsuperuser
 ```http://localhost:8000/admin/```
 ### Principais rotas de acesso
 
-| URI                                                                                 | Tipos de Requisição           |
-| ----------------------------------------------------------------------------------- | ----------------------------- |
-| http://localhost:8000/api/usuarios/<pk>/                                            | `POST` `GET` `PATCH` `DELETE` |
-| http://localhost:8000/api/produtos/<pk>/                                            | `POST` `GET` `PATCH` `DELETE` |
-| http://localhost:8000/api/usuarios/<pk>/set_password/                               | `POST`                        |
-| http://localhost:8000/api/usuarios/<usuario_pk>/enderecos/<pk>/                     | `POST` `GET` `PATCH` `DELETE` |
-| http://localhost:8000/api/usuarios/<usuario_pk>/pedidos/<pk>/                       | `POST` `GET` `PATCH` `DELETE` |
-| http://localhost:8000/api/usuarios/<usuario_pk>/pedidos/<pedido_pk>/enderecos/<pk>/ | `POST` `GET` `PATCH` `DELETE` |
+| URI                                                                                | Tipos de Requisição           |
+| ---------------------------------------------------------------------------------- | ----------------------------- |
+| http://localhost:8000/api/usuarios/<id>                                            | `POST` `GET` `PATCH` `DELETE` |
+| http://localhost:8000/api/produtos/<id>                                            | `POST` `GET` `PATCH` `DELETE` |
+| http://localhost:8000/api/usuarios/<pk>/set_password                               | `POST`                        |
+| http://localhost:8000/api/usuarios/<usuario_id>/enderecos/<id>                     | `POST` `GET` `PATCH` `DELETE` |
+| http://localhost:8000/api/usuarios/<usuario_id>/pedidos/<id>                       | `POST` `GET` `PATCH` `DELETE` |
+| http://localhost:8000/api/usuarios/<usuario_id>/pedidos/<pedido_id>/enderecos/<id> | `POST` `GET` `PATCH` `DELETE` |
 
 <hr />
 
