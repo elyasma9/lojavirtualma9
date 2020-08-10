@@ -28,10 +28,10 @@ docker-compose run web python manage.py createsuperuser
 
 | URI                                                                                 | Tipos de Requisição           |
 | ----------------------------------------------------------------------------------- | ----------------------------- |
-| http://localhost:8000/api/usuarios/<pk>                                             | `POST` `GET` `PATCH` `DELETE` |
-| http://localhost:8000/api/produtos/<pk>                                             | `POST` `GET` `PATCH` `DELETE` |
+| http://localhost:8000/api/usuarios/<pk>/                                            | `POST` `GET` `PATCH` `DELETE` |
+| http://localhost:8000/api/produtos/<pk>/                                            | `POST` `GET` `PATCH` `DELETE` |
 | http://localhost:8000/api/usuarios/<pk>/set_password/                               | `POST`                        |
-| http://localhost:8000/api/usuarios/<usuario_pk>/enderecos/<pk>                      | `POST` `GET` `PATCH` `DELETE` |
+| http://localhost:8000/api/usuarios/<usuario_pk>/enderecos/<pk>/                     | `POST` `GET` `PATCH` `DELETE` |
 | http://localhost:8000/api/usuarios/<usuario_pk>/pedidos/<pk>/                       | `POST` `GET` `PATCH` `DELETE` |
 | http://localhost:8000/api/usuarios/<usuario_pk>/pedidos/<pedido_pk>/enderecos/<pk>/ | `POST` `GET` `PATCH` `DELETE` |
 
