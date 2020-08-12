@@ -1,9 +1,10 @@
 from django.db import models
 from django.utils import timezone
 
-from apps.usuarios.models import CustomUser
-from apps.enderecos.models import Endereco
-from apps.produtos.models import Produto
+from usuarios.models import CustomUser
+from enderecos.models import Endereco
+from produtos.models import Produto
+
 
 class Pedido(models.Model):
 
@@ -13,6 +14,7 @@ class Pedido(models.Model):
         ("E", "Saiu para entrega"),
     )
 
+    id = models.AutoField(primary_key=True)
     user = models.ForeignKey(
         CustomUser, on_delete=models.CASCADE, related_name='pedido')
     endereco = models.ForeignKey(Endereco,

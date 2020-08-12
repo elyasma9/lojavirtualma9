@@ -1,5 +1,5 @@
 from rest_framework.serializers import ModelSerializer
-from apps.enderecos.models import Endereco
+from enderecos.models import Endereco
 
 
 class EnderecossSerializer(ModelSerializer):

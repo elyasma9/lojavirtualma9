@@ -1,5 +1,5 @@
 from rest_framework.serializers import ModelSerializer
-from apps.pedidos.models import Pedido
+from pedidos.models import Pedido
 
 
 class PedidosSerializer(ModelSerializer):

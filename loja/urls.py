@@ -2,10 +2,10 @@ from django.contrib import admin
 from django.conf.urls import include
 from django.urls import path
 from rest_framework_nested import routers
-from apps.usuarios.api.viewsets import UsuariosViewSet
-from apps.enderecos.api.viewsets import EnderecosViewSet
-from apps.produtos.api.viewsets import ProdutosViewSet
-from apps.pedidos.api.viewsets import PedidosViewSet
+from usuarios.api.viewsets import UsuariosViewSet
+from enderecos.api.viewsets import EnderecosViewSet
+from produtos.api.viewsets import ProdutosViewSet
+from pedidos.api.viewsets import PedidosViewSet
 
 
 router = routers.DefaultRouter()

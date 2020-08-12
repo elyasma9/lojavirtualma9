@@ -1,5 +1,5 @@
 from rest_framework.viewsets import ModelViewSet
-from apps.produtos.models import Produto
+from produtos.models import Produto
 from .serializers import ProdutosSerializer
 
 

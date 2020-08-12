@@ -3,7 +3,7 @@ from rest_framework.decorators import action
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
-from apps.usuarios.models import CustomUser
+from usuarios.models import CustomUser
 from .serializers import UsuariosCompletoSerializer, UsuariosSerializer
 from .serializers import UsuariosChangePasswordSerializer
 

@@ -1,8 +1,9 @@
 from django.db import models
-from apps.usuarios.models import CustomUser
+from usuarios.models import CustomUser
 
 
 class Endereco(models.Model):
+    id = models.AutoField(primary_key=True)
     user = models.ForeignKey(CustomUser,
                              on_delete=models.CASCADE,
                              related_name='enderecos')
