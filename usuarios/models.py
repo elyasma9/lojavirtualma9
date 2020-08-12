@@ -11,7 +11,7 @@ class CustomUser(AbstractUser):
     email = models.EmailField(_('email address'), unique=True)
     nome = models.CharField(max_length=30)
     sobrenome = models.CharField(max_length=30)
-    cpf = models.CharField(max_length=11)
+    cpf = models.CharField(max_length=11, unique=True)
     rg = models.CharField(max_length=10)
     telefone = models.CharField(max_length=12)
 
