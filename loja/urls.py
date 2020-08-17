@@ -23,7 +23,7 @@ usuario_router.register('pedidos', PedidosViewSet, base_name='pedidos')
 # rota de pedidos aninhada com (endereços) --> nível 3
 pedidos_router = routers.NestedSimpleRouter(
     usuario_router, 'pedidos', lookup='pedido')
-pedidos_router.register('enderecos', EnderecosViewSet, base_name='enderecos')
+pedidos_router.register('enderecos', EnderecosViewSet, base_name='usuario-pedidos')
 
 
 urlpatterns = [
