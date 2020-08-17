@@ -21,6 +21,15 @@ create a user for admin
 docker-compose run web python manage.py createsuperuser
 ```
 
+run tests
+
+```
+docker-compose run web python manage.py test usuarios
+docker-compose run web python manage.py test produtos
+docker-compose run web python manage.py test pedidos
+docker-compose run web python manage.py test enderecos
+```
+
 ## Rotas
 ### Rota do Admin
 ```http://localhost:8000/admin/```
