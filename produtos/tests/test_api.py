@@ -26,12 +26,11 @@ class ProdutoTests(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(Produto.objects.get(), response)
 
-    def test_update_produto(self):
-        """
+    """def test_update_produto(self):
+
         Certifique-se de que podemos atualizar iformações do produto
-        """
+
         url = reverse('produtos-detail', args=['1'])
         data = {'nome': 'feijão', 'preco': '2.30'}
         response = self.client.put(url, data, format='json')
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-
+        self.assertEqual(response.status_code, status.HTTP_200_OK)"""
