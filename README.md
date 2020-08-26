@@ -39,7 +39,7 @@ docker-compose run web python manage.py test enderecos
 | ---------------------------------------------------------------------------------- | ----------------------------- |
 | http://localhost:8000/api/usuarios/<id>                                            | `POST` `GET` `PATCH` `DELETE` |
 | http://localhost:8000/api/produtos/<id>                                            | `POST` `GET` `PATCH` `DELETE` |
-| http://localhost:8000/api/usuarios/<usuario_id>/set_password                               | `POST`                        |
+| http://localhost:8000/api/usuarios/<usuario_id>/set_password                       | `POST`                        |
 | http://localhost:8000/api/usuarios/<usuario_id>/enderecos/<id>                     | `POST` `GET` `PATCH` `DELETE` |
 | http://localhost:8000/api/usuarios/<usuario_id>/pedidos/<id>                       | `POST` `GET` `PATCH` `DELETE` |
 | http://localhost:8000/api/usuarios/<usuario_id>/pedidos/<pedido_id>/enderecos/<id> | `POST` `GET` `PATCH` `DELETE` |
@@ -81,5 +81,5 @@ docker-compose run web python manage.py test enderecos
 *_pip install pylint_*
 
 ### run lint on project
-find apps/ -name "*.py" -and -not -name "0*.py" | xargs pylint </br>
+find usuarios/ pedidos/ produtos/ enderecos/ -name "*.py" -and -not -name "0*.py" | xargs pylint </br>
 find loja/ -name "*.py" -and -not -name "0*.py" | xargs pylint
