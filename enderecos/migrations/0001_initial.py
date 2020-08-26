@@ -15,16 +15,31 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Endereco',
+            name="Endereco",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('logradouro', models.CharField(max_length=80)),
-                ('bairro', models.CharField(max_length=50)),
-                ('cep', models.CharField(max_length=9)),
-                ('cidade', models.CharField(max_length=80)),
-                ('estado', models.CharField(max_length=80)),
-                ('numero', models.CharField(max_length=20)),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='enderecos', to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("logradouro", models.CharField(max_length=80)),
+                ("bairro", models.CharField(max_length=50)),
+                ("cep", models.CharField(max_length=9)),
+                ("cidade", models.CharField(max_length=80)),
+                ("estado", models.CharField(max_length=80)),
+                ("numero", models.CharField(max_length=20)),
+                (
+                    "user",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="enderecos",
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
         ),
     ]
