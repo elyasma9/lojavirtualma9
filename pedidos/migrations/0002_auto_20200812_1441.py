@@ -6,18 +6,25 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('pedidos', '0001_initial'),
+        ("pedidos", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='pedido',
-            name='id',
+            model_name="pedido",
+            name="id",
             field=models.AutoField(primary_key=True, serialize=False),
         ),
         migrations.AlterField(
-            model_name='pedido',
-            name='status',
-            field=models.CharField(choices=[('P', 'Pedido realizado'), ('F', 'Fazendo'), ('E', 'Saiu para entrega')], max_length=16),
+            model_name="pedido",
+            name="status",
+            field=models.CharField(
+                choices=[
+                    ("P", "Pedido realizado"),
+                    ("F", "Fazendo"),
+                    ("E", "Saiu para entrega"),
+                ],
+                max_length=16,
+            ),
         ),
     ]

@@ -8,37 +8,36 @@ from pedidos.models import Pedido
 
 
 class PedidosTest(APITestCase):
-
     def setUp(self):
 
         user = CustomUser.objects.create(
-            nome='Rodrigo',
-            sobrenome='Santana',
-            email='rodsantana@gmail.com',
-            password='mary1kim2',
-            cpf='07888889877',
-            rg='98976540',
+            nome="Rodrigo",
+            sobrenome="Santana",
+            email="rodsantana@gmail.com",
+            password="mary1kim2",
+            cpf="07888889877",
+            rg="98976540",
             is_staff=True,
-            is_active=True)
+            is_active=True,
+        )
 
-        produto = Produto.objects.create(
-            nome='arroz',
-            preco=2.30)
+        produto = Produto.objects.create(nome="arroz", preco=2.30)
 
         endereco = Endereco.objects.create(
-            logradouro='Rua dois Loteamento Carajás',
-            bairro='Bairro Marcos Freire 2/Taiçoca',
-            cep='49160-000',
-            cidade='NOSSA SENHORA DO SOCORRO',
-            estado='SE',
-            numero='78',
-            user=user)
+            logradouro="Rua dois Loteamento Carajás",
+            bairro="Bairro Marcos Freire 2/Taiçoca",
+            cep="49160-000",
+            cidade="NOSSA SENHORA DO SOCORRO",
+            estado="SE",
+            numero="78",
+            user=user,
+        )
 
     def test_create_pedidos(self):
         """
         Certifique-se de que podemos criar um novo objeto de pedidos.
         """
-        url = reverse('pedidos-list', args=['1'])
+        url = reverse("pedidos-list", args=["1"])
         print(url)
         data = {
             "user": 1,
@@ -46,7 +45,7 @@ class PedidosTest(APITestCase):
             "status": "P",
             "endereco": 1,
         }
-        response = self.client.post(url, data, format='json')
+        response = self.client.post(url, data, format="json")
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(Pedido.objects.count(), 1)
-        self.assertEqual(Pedido.objects.get().status, 'P')
+        self.assertEqual(Pedido.objects.get().status, "P")

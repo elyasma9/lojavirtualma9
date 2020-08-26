@@ -8,5 +8,5 @@ class PedidosViewSet(ModelViewSet):
     serializer_class = PedidosSerializer
 
     def get_queryset(self):
-        queryset = Pedido.objects.filter(user=self.kwargs['usuario_pk'])
+        queryset = Pedido.objects.filter(user=self.kwargs["usuario_pk"])
         return queryset

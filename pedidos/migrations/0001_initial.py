@@ -11,21 +11,63 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('produtos', '0001_initial'),
+        ("produtos", "0001_initial"),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('enderecos', '0001_initial'),
+        ("enderecos", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Pedido',
+            name="Pedido",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('data_pedido', models.DateTimeField(default=django.utils.timezone.now)),
-                ('status', models.CharField(choices=[('P', 'Pedido realizado'), ('F', 'Fazendo'), ('E', 'Saiu para entrega')], max_length=1)),
-                ('endereco', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='destino', to='enderecos.Endereco')),
-                ('produtos', models.ManyToManyField(related_name='carrinho', to='produtos.Produto')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='pedido', to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "data_pedido",
+                    models.DateTimeField(default=django.utils.timezone.now),
+                ),
+                (
+                    "status",
+                    models.CharField(
+                        choices=[
+                            ("P", "Pedido realizado"),
+                            ("F", "Fazendo"),
+                            ("E", "Saiu para entrega"),
+                        ],
+                        max_length=1,
+                    ),
+                ),
+                (
+                    "endereco",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.SET_NULL,
+                        related_name="destino",
+                        to="enderecos.Endereco",
+                    ),
+                ),
+                (
+                    "produtos",
+                    models.ManyToManyField(
+                        related_name="carrinho", to="produtos.Produto"
+                    ),
+                ),
+                (
+                    "user",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="pedido",
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
         ),
     ]
