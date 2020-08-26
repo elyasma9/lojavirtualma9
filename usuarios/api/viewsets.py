@@ -10,11 +10,11 @@ from .serializers import UsuariosChangePasswordSerializer
 
 class UsuariosViewSet(ModelViewSet):
 
-    queryset = CustomUser.objects.filter(is_staff=False).order_by('pk')
+    queryset = CustomUser.objects.filter(is_staff=False).order_by("pk")
     serializer_class = UsuariosCompletoSerializer
 
     def list(self, request):
-        queryset = CustomUser.objects.filter(is_staff=False).order_by('pk')
+        queryset = CustomUser.objects.filter(is_staff=False).order_by("pk")
         serializer = UsuariosSerializer(queryset, many=True)
         return Response(serializer.data)
 
@@ -29,8 +29,8 @@ class UsuariosViewSet(ModelViewSet):
         user = self.get_object()
         serializer = UsuariosChangePasswordSerializer(data=request.data)
         if serializer.is_valid():
-            user.set_password(serializer.data['password'])
+            user.set_password(serializer.data["password"])
             user.save()
-            return Response({'status': 'Senha alterada com sucesso!'})
+            return Response({"status": "Senha alterada com sucesso!"})
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
